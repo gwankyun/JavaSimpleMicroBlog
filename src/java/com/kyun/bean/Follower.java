@@ -10,5 +10,7 @@ package com.kyun.bean;
  * @author ljqic
  */
 public class Follower {
-    
+    private String id;
+    private String speaker;
+    private String listener;
 }
