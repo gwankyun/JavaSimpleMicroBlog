@@ -50,6 +50,7 @@ public class DB {
             Class.forName(name);//指定连接类型  
             connection = DriverManager.getConnection(url, user, password);//获取连接  
         } catch (Exception e) {
+            e.printStackTrace();
         }
         setConnection(connection);
         return connection;
