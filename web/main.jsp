@@ -3,9 +3,11 @@
     Created on : 2016-5-12, 14:12:26
     Author     : ljqic
 --%>
-
-<%@page import="com.kyun.bean.User"%>
+<%@page import="java.util.LinkedList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.kyun.bean.User"%>
+<%@page import="com.kyun.bean.Blog"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,6 +38,25 @@
             </table>
         </form>
         <%
+            if (user != null) {
+                ArrayList<Blog> list =  Blog.getBlogs();
+                if (list.size() > 0) {
+                    %>
+                    <table>
+                    <%
+                    for (Blog i : list) {
+                        %>
+                        <tr>
+                            <td><%=i.getId() %></td><td><%=i.getTime() %></td>
+                        </tr>
+                        <tr><td><%=i.getContent() %></td></tr>
+                        <%
+                    }
+                    %>
+                    </table>
+                    <%
+                }
+            }
         %>
     </body>
 </html>

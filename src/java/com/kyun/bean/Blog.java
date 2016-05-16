@@ -103,4 +103,31 @@ public class Blog {
             return result;
         }
     }
+    
+    public static ArrayList<Blog> getBlogs() {
+        DB db = new DB();
+        ArrayList<Blog> result = new ArrayList<Blog>();
+        String sql
+                = "SELECT `id`, `content`, `time`, `author` FROM `blog`"
+                + "ORDER BY time DESC";
+        try {
+            PreparedStatement preparedStatement = db.getPreparedStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {                
+                Blog blog = new Blog();
+                blog.setAuthor(resultSet.getString("id"));
+                blog.setContent(resultSet.getString("content"));
+                blog.setTime(resultSet.getString("time"));
+                result.add(blog);
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+            return result;
+        }
+    }
+    
 }

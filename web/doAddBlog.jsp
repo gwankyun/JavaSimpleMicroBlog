@@ -27,6 +27,7 @@
             blog.setContent(content);
             if (Blog.addBlog(blog)) {
                 out.println("發佈成功");
+                response.sendRedirect("main.jsp");
             } else {
                 out.println("發佈失敗");
             }
