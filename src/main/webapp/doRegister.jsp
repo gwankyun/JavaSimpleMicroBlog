@@ -5,12 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.kyun.bean.DB" %>
+<%@page import="com.mycompany.JavaSimpleMicroBlog.DB" %>
 <%@page import="java.sql.PreparedStatement" %>
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.ResultSet" %>
 <%@page import="java.sql.SQLException" %>
-<%@page import="com.kyun.bean.User" %>
+<%@page import="com.mycompany.JavaSimpleMicroBlog.User" %>
 <!DOCTYPE html>
 <html>
     <head>
