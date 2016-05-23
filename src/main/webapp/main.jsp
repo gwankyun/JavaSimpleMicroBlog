@@ -23,10 +23,12 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            User user  = (User)session.getAttribute("thisUser");
+            User user = (User) session.getAttribute("thisUser");
+            out.println(user.getId());
         %>
-        <br />
-        <form action="doAddBlog.jsp" method="post">
+        <br 
+            <%=user.getId()%>
+            <form action="doAddBlog.jsp" method="post">
             <table>
                 <tr>
                 <textarea id="inputBlock" name="content"></textarea>
@@ -39,22 +41,22 @@
         </form>
         <%
             if (user != null) {
-                ArrayList<Blog> list =  Blog.getBlogs();
+                ArrayList<Blog> list = Blog.getBlogs();
                 if (list.size() > 0) {
-                    %>
-                    <table>
-                    <%
-                    for (Blog i : list) {
-                        %>
-                        <tr>
-                            <td><%=i.getId() %></td><td><%=i.getTime() %></td>
-                        </tr>
-                        <tr><td><%=i.getContent() %></td></tr>
-                        <%
-                    }
-                    %>
-                    </table>
-                    <%
+        %>
+        <table>
+            <%
+                for (Blog i : list) {
+            %>
+            <tr>
+                <td><%=i.getId()%></td><td><%=i.getTime()%></td>
+            </tr>
+            <tr><td><%=i.getContent()%></td></tr>
+            <%
+                }
+            %>
+        </table>
+        <%
                 }
             }
         %>

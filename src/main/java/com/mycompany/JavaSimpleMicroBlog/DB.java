@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.kyun.bean;
+package com.mycompany.JavaSimpleMicroBlog;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

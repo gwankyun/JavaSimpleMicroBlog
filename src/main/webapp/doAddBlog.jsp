@@ -22,7 +22,8 @@
         <%
             String content = request.getParameter("content");
             User user = (User)session.getAttribute("thisUser");
-            Blog blog = new Blog();
+            if (user != null) {
+                Blog blog = new Blog();
             blog.setAuthor(user.getId());
             blog.setContent(content);
             if (Blog.addBlog(blog)) {
@@ -30,6 +31,9 @@
                 response.sendRedirect("main.jsp");
             } else {
                 out.println("發佈失敗");
+            }
+            } else {
+                
             }
         %>
     </body>
