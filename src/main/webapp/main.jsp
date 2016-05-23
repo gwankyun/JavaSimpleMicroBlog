@@ -5,8 +5,8 @@
 --%>
 <%@page import="java.util.LinkedList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.kyun.bean.User"%>
-<%@page import="com.kyun.bean.Blog"%>
+<%@page import="com.mycompany.JavaSimpleMicroBlog.User"%>
+<%@page import="com.mycompany.JavaSimpleMicroBlog.Blog"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +26,7 @@
             User user = (User) session.getAttribute("thisUser");
             out.println(user.getId());
         %>
+        <a href="logout.jsp?username=<%=user.getId() %>"></a>
         <br 
             <%=user.getId()%>
             <form action="doAddBlog.jsp" method="post">
