@@ -41,8 +41,8 @@ public class DB {
     }
 
     public Connection getConnection() {
-        String url = "jdbc:mysql://localhost:3306/test";
-        String name = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+        String name = "com.mysql.cj.jdbc.Driver";
         String user = "root";
         String password = "";
         Connection connection = null;
@@ -61,6 +61,7 @@ public class DB {
     }
 
     public ResultSet getResultSet(String sql) {
+        ResultSet ret = null; 
         try {
             preparedStatement = getPreparedStatement(sql);
         } catch (Exception e) {
