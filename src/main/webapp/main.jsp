@@ -26,7 +26,7 @@
             User user = (User) session.getAttribute("thisUser");
             out.println(user.getId());
         %>
-        <a href="logout.jsp?username=<%=user.getId() %>"></a>
+        <a href="logout.jsp">登出</a>
         <br 
             <%=user.getId()%>
             <form action="doAddBlog.jsp" method="post">

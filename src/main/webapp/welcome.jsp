@@ -50,7 +50,7 @@
                 response.sendRedirect("main.jsp");
             } else {
                 out.println(username + " " + password);
-//                response.sendRedirect("index.html");
+                response.sendRedirect("index.html");
             }
         %>
     </body>
