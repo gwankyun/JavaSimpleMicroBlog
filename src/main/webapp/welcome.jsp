@@ -19,32 +19,12 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            DB db = new DB();
-            if (db != null) {
-                out.println("OK");
-            }
-            if (db.getConnection() != null) {
-                out.println("conn");
-            }
-            PreparedStatement preparedStatement = db.getPreparedStatement("select * from user");
-            if (preparedStatement != null) {
-                out.println("pre");
-            }
-            ResultSet resultSet = db.getResultSet(preparedStatement);
-            if (resultSet != null) {
-                while (resultSet.next()) {
-                    String name = resultSet.getString("username");
-                    out.println(name);
-                }
-            }
-
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
             String id = user.getId();
-            out.println(id);
             if (!id.equals("")) {
                 session.setAttribute("thisUser", user);
                 response.sendRedirect("main.jsp");
