@@ -5,4 +5,5 @@ Java實現的微博系統，用Maven構建
 
 目前用到：
 
-- jstl
+- mysql-connector-java 6.0.2
+- jstl 1.2
