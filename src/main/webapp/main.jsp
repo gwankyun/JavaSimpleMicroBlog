@@ -8,6 +8,7 @@
 <%@page import="com.mycompany.JavaSimpleMicroBlog.User"%>
 <%@page import="com.mycompany.JavaSimpleMicroBlog.Blog"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,26 +41,16 @@
                 </tr>
             </table>
         </form>
-        <%
-            if (user != null) {
-                ArrayList<Blog> list = Blog.getBlogs();
-                if (list.size() > 0) {
-        %>
         <table>
-            <%
-                for (Blog i : list) {
-            %>
-            <tr>
-                <td><%=i.getId()%></td><td><%=i.getTime()%></td>
-            </tr>
-            <tr><td><%=i.getContent()%></td></tr>
-            <%
-                }
-            %>
+            <c:forEach var="blog" items="${Blog.getBlogs()}">
+                <tr>
+                    <td>${blog.getId()}</td>
+                    <td>${blog.getTime()}</td>
+                </tr>
+                <tr>
+                    <td>${blog.getContent()}</td>
+                </tr>
+            </c:forEach>
         </table>
-        <%
-                }
-            }
-        %>
     </body>
 </html>
