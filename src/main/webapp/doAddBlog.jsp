@@ -21,19 +21,19 @@
         <h1>Hello World!</h1>
         <%
             String content = request.getParameter("content");
-            User user = (User)session.getAttribute("thisUser");
+            User user = (User) session.getAttribute("thisUser");
             if (user != null) {
                 Blog blog = new Blog();
-            blog.setAuthor(user.getId());
-            blog.setContent(content);
-            if (Blog.addBlog(blog)) {
-                out.println("發佈成功");
-                response.sendRedirect("main.jsp");
+                blog.setAuthor(user.getId());
+                blog.setContent(content);
+                if (Blog.addBlog(blog)) {
+                    out.println("發佈成功");
+                    response.sendRedirect("main.jsp");
+                } else {
+                    out.println("發佈失敗");
+                }
             } else {
-                out.println("發佈失敗");
-            }
-            } else {
-                
+                out.println("用戶未登錄");
             }
         %>
     </body>

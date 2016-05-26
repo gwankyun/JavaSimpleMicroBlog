@@ -26,6 +26,29 @@ public class User {
         return username;
     }
 
+    public static String getUsername(String id) {
+        DB db = new DB();
+        String sql = "SELECT username FROM user WHERE id = ?";
+        String name = "";
+        try {
+            PreparedStatement preparedStatement = db.getPreparedStatement(sql);
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = db.getResultSet(preparedStatement);
+            if (resultSet != null) {
+                if (resultSet.next()) {
+                    name = resultSet.getString("username");
+                }
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+            return name;
+        }
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -39,8 +62,8 @@ public class User {
     }
 
     public String getId() {
-        String result = "";
         if (id.equals("")) {
+            String result = "";
             DB db = new DB();
             String sql
                     = "SELECT id FROM user"

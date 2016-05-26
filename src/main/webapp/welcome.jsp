@@ -24,6 +24,7 @@
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
+            user.setId(user.getId());
             String id = user.getId();
             if (!id.equals("")) {
                 session.setAttribute("thisUser", user);

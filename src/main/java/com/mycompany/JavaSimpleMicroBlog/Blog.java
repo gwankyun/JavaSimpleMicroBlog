@@ -115,7 +115,7 @@ public class Blog {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {                
                 Blog blog = new Blog();
-                blog.setAuthor(resultSet.getString("id"));
+                blog.setAuthor(resultSet.getString("author"));
                 blog.setContent(resultSet.getString("content"));
                 blog.setTime(resultSet.getString("time"));
                 result.add(blog);

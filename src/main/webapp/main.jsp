@@ -25,15 +25,15 @@
         <h1>Hello World!</h1>
         <%
             User user = (User) session.getAttribute("thisUser");
-            out.println(user.getId());
+//            out.println(user.getId());
         %>
         <a href="logout.jsp">登出</a>
-        <br 
-            <%=user.getId()%>
-            <form action="doAddBlog.jsp" method="post">
+        <br/> 
+        <form action="doAddBlog.jsp" method="post">
+            <%--<%=user.getId()%>--%>
             <table>
                 <tr>
-                <textarea id="inputBlock" name="content"></textarea>
+                    <td><textarea id="inputBlock" name="content"></textarea></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="發佈"/></td>
@@ -44,7 +44,7 @@
         <table>
             <c:forEach var="blog" items="${Blog.getBlogs()}">
                 <tr>
-                    <td>${blog.getId()}</td>
+                    <td>${User.getUsername(blog.getAuthor())}</td>
                     <td>${blog.getTime()}</td>
                 </tr>
                 <tr>
